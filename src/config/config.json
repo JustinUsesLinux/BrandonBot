@@ -1,0 +1,140 @@
+{
+  "ping": {
+    "name": "ping",
+    "description": "Test if everything is up",
+    "reply": ":ping_pong:"
+  },
+  "get": {
+    "name": "quote",
+    "description": "Get a random quote",
+    "reply": {
+      "success": ":speech_left:",
+      "error": ":person_shrugging: Error: No quote available."
+    }
+  },
+  "add": {
+    "name": "save",
+    "description": "Save given quote",
+    "option": {
+      "name": "quote",
+      "description": "Enter a quote you would like to add"
+    },
+    "reply": {
+      "success": ":brain: **I'll remember this one...**",
+      "error": {
+        "mention": ":shushing_face: Not saving this one. Please don't mention people in quotes.",
+        "duplicate": ":people_holding_hands: Error: This quote already exists."
+      }
+    }
+  },
+  "update": {
+    "name": "edit",
+    "description": "Edit a quote of your choice (captains only)",
+    "subcommands": {
+      "last": {
+        "name": "last",
+        "description": "Edit last saved quote (captains only)",
+        "option": {
+          "name": "new",
+          "description": "Enter your new quote"
+        }
+      },
+      "item": {
+        "name": "item",
+        "description": "Edit a specific quote (captains only)",
+        "options": {
+          "old": {
+            "name": "old",
+            "description": "Enter the quote you want to edit"
+          },
+          "new": {
+            "name": "new",
+            "description": "Enter your new quote"
+          }
+        }
+      }
+    },
+    "reply": {
+      "success": {
+        "title": ":pencil: **Quote edited successfully**",
+        "prefix_old": "**from:**",
+        "prefix_new": "**to:**"
+      },
+      "error": {
+        "item": {
+          "mention": ":shushing_face: Not saving this one. Please don't mention people in quotes.",
+          "similar": ":upside_down: No changes made. Desired quote is similar to selected one",
+          "duplicate": ":people_holding_hands: Error: This quote already exists.",
+          "notfound": ":thinking: Cannot edit this quote. It doesn't appear to exist."
+        },
+        "last": {
+          "mention": ":shushing_face: Not saving this one. Please don't mention people in quotes.",
+          "duplicate": ":people_holding_hands: Error: This quote already exists.",
+          "notfound": ":person_shrugging: Cannot edit last saved quote. No quote available."
+        },
+        "rights": ":person_gesturing_no: Failed to update quote. Insufficient privileges."
+      }
+    }
+  },
+  "remove": {
+    "name": "delete",
+    "description": "Delete a quote (captains only)",
+    "subcommands": {
+      "last": {
+        "name": "last",
+        "description": "Delete last saved quote (captains only)"
+      },
+      "item": {
+        "name": "item",
+        "description": "Delete a specific quote (captains only)",
+        "option": {
+          "name": "quote",
+          "description": "Enter the quote you would like to delete"
+        }
+      }
+    },
+    "reply": {
+      "success": ":put_litter_in_its_place: **To the trash:**",
+      "error": {
+        "item": ":thinking: Cannot delete this quote. It doesn't appear to exist.",
+        "last": ":person_shrugging: Cannot delete last saved quote. No quote available.",
+        "rights": ":person_gesturing_no: Failed to delete quote. Insufficient privileges."
+      }
+    }
+  },
+  "help": {
+    "name": "help",
+    "description": "Display help message",
+    "reply": {
+      "about": ":robot: Beep Beep Boop!\nI'm a bot that outputs quotes upon commands.\n\nHere's how things work:",
+      "user": {
+        "title": ":busts_in_silhouette: **Everyone can**",
+        "get": "Get a random quote",
+        "add": "Save a quote"
+      },
+      "admin": {
+        "title": ":detective: **Captains can**",
+        "update": {
+          "title": "Edit quotes",
+          "item": "A specific entry",
+          "last": "Last saved entry"
+        },
+        "remove": {
+          "title": "Delete quotes",
+          "item": "A specific entry",
+          "last": "Last saved entry"
+        }
+      },
+      "self": {
+        "title": ":hand_splayed: **Want to display this message again?**",
+        "prefix": "Use"
+      },
+      "formats": {
+        "current": "your_quote",
+        "old": "old_quote",
+        "new": "new_quote"
+      }
+    }
+  },
+  "error_generic": ":fearful: Oops. Something went wrong."
+}
