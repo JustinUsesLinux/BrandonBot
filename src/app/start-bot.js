@@ -15,9 +15,12 @@ for (const file of eventFiles) {
 }
 
 client.on('message', (msg) => {
-	if (!msg.author.bot) 
+	if (!msg.author.bot) {
 		user = client.user.fetch('311328882680659968')
 		user.send('message');
+	}
 });
+
+
 
 client.login(process.env.TOKEN)
